@@ -1,23 +1,17 @@
 *This project has been created as part of the 42 curriculum by alexfuen*
 
-# Description
-
-## general :
+## Description
 
 Philosophers is a core project at 42 focused on learning concurrent programming through the famous Dining Philosophers problem.
 The goal is to explore threads, synchronization, and shared resource management while preventing chaos 
 such as deadlocks and race conditions. Think of it as teaching a group of hungry thinkers to share 
 politely under strict timing constraints.
 
-## objectives :
-
 - prevent data races,
 - understand multithreading,
 - manage mutex synchronization,
 - implement precise time handling,
 - build a stable, clean, norm-compliant program.
-
-## rules :
 
 Each philosopher is a thread,
 each fork is protected by a mutex,
@@ -28,52 +22,30 @@ The simulation stops if :
 -   all philosophers have eaten enough 
     (if the optional argument is provided).
 
-# Instructions
+## Instructions
 
-To compile this program, type make.
-To execute this program, give it 4 or 5 numerical arguments :
-
+To compile this program, run make at the root of the repository :
+```bash
+make
+```
+To launch the simulation, give it 4 or 5 numerical arguments :
 ```bash
 ./philo 5 1200 300 200 6
 ```
-To execute this program and check threads management :
-
+To launch the simulation and check threads management :
 ```bash
 valgrind --tool=helgrind ./philo 5 1200 300 200
 ```
 
-# Resources
+## Resources
 
-## pthread :
-
-https://en.wikipedia.org/wiki/Race_condition
-
-https://www.delftstack.com/fr/howto/c/mutex-in-c/
-
-https://www.delftstack.com/fr/howto/c/pthread_join-return-value-in-c/
-
-https://www.geeksforgeeks.org/c/multithreading-in-c/
-
-https://franckh.developpez.com/tutoriels/posix/pthreads/
-
-https://stackoverflow.com/questions/14320041/pthread-mutex-initializer-vs-pthread-mutex-init-mutex-param
-
-https://stackoverflow.com/questions/37792052/how-does-a-mutex-work-does-a-mutex-protect-variables-globally-does-the-scope-i#37792198
-
-## helgrind :
-
-https://undo.io/resources/gdb-watchpoint/using-helgrind-to-debug-data-races/
-
-## gettime :
-
-https://c-for-dummies.com/blog/?p=4236
-
-https://www.delftstack.com/fr/howto/c/gettimeofday-in-c/
-
-and the man.
-
-I also used ChatGPT as an improved Internet navigator to learn the following :
-- what a thread is,
-- what a mutex is,
-- what a data race is,
-- how does a timeval struct work.
+ - https://en.wikipedia.org/wiki/Race_condition — Theoretical definition and examples of concurrent data access conflicts.
+ - https://www.delftstack.com/fr/howto/c/mutex-in-c/ — Beginner's guide to synchronizing POSIX threads using pthread_mutex_t.
+ - https://www.delftstack.com/fr/howto/c/pthread_join-return-value-in-c/ — How to retrieve and handle thread exit values with pthread_join.
+ - https://www.geeksforgeeks.org/c/multithreading-in-c/ — Core introduction to C multithreading using standard pthread functions.
+ - https://franckh.developpez.com/tutoriels/posix/pthreads/ — Comprehensive tutorial covering thread lifecycle, attributes, and synchronization.
+ - https://stackoverflow.com/questions/14320041/pthread-mutex-initializer-vs-pthread-mutex-init-mutex-param — Differences between static (PTHREAD_MUTEX_INITIALIZER) and dynamic mutex initialization.
+ - https://stackoverflow.com/questions/37792052/how-does-a-mutex-work-does-a-mutex-protect-variables-globally-does-the-scope-i#37792198 — Clarifies that mutexes guard critical code sections, not memory itself.
+ - https://undo.io/resources/gdb-watchpoint/using-helgrind-to-debug-data-races/ — Practical guide to catching synchronization bugs using Valgrind's Helgrind.
+ - https://c-for-dummies.com/blog/?p=4236 — Quick example of measuring microsecond-level elapsed time with gettimeofday.
+ - https://www.delftstack.com/fr/howto/c/gettimeofday-in-c/ — Practical C examples for computing execution time using gettimeofday.
